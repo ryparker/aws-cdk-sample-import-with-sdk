@@ -22,7 +22,7 @@ yarn bootstrap
 **3. Build Cloudformation files**
 
 ```shell
-yarn build
+yarn build StackA
 ```
 
 **4. Deploy Stack A**
