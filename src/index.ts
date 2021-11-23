@@ -10,7 +10,7 @@ const app = new App();
 new StackA(app, 'StackA', { env });
 
 /* Uncomment code below once StackA is deployed */
-createStackB();
+// createStackB();
 
 async function createStackB() {
   const stackOutputs = await fetchStackOutputs('StackA');
