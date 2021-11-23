@@ -1,35 +1,37 @@
-import { CfnOutput } from 'aws-cdk-lib';
+import { Stack, StackProps, CfnOutput } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { Cluster } from 'aws-cdk-lib/aws-ecs';
 import { Vpc, SecurityGroup } from 'aws-cdk-lib/aws-ec2';
-import { CLUSTER_NAME } from '../constants';
-import { fetchStackOutputs } from '../aws-sdk';
 
-export default async (scope: Construct) => {
-  const vpc = Vpc.fromLookup(scope, 'DefaultVpc', {
-    isDefault: true,
-  });
+export interface StackBProps extends StackProps {
+  clusterName: string;
+  securityGroupId: string;
+}
 
-  const stackAOutputs = await fetchStackOutputs('StackA');
+export default class StackB extends Stack {
+  constructor(scope: Construct, id: string, props: StackBProps) {
+    super(scope, id, props);
+    console.log({ props })
 
-  // Remember that hyphens are removed from the output names
-  const clusterName = stackAOutputs[`${CLUSTER_NAME}ExistingClusterStackName`];
-  const securityGroupId = stackAOutputs[`${CLUSTER_NAME}ExistingClusterSecurityGroup`];
+    const vpc = Vpc.fromLookup(this, 'DefaultVpc', {
+      isDefault: true,
+    });
 
-  const clusterSecurityGroup = SecurityGroup.fromLookup(scope, 'EcsInstanceSecurityGroup',
-    securityGroupId,
-  );
+    const clusterSecurityGroup = SecurityGroup.fromLookup(this, 'EcsInstanceSecurityGroup',
+      props.securityGroupId,
+    );
 
-  const cluster = Cluster.fromClusterAttributes(scope, 'ExistingCluster', {
-    vpc: vpc,
-    clusterName: clusterName,
-    securityGroups: [
-      clusterSecurityGroup
-    ],
-  });
+    const cluster = Cluster.fromClusterAttributes(this, 'ExistingCluster', {
+      vpc: vpc,
+      clusterName: props.clusterName,
+      securityGroups: [
+        clusterSecurityGroup
+      ],
+    });
 
-  /* Stack Outputs */
-  new CfnOutput(scope, 'ExistingClusterName', {
-    value: cluster.clusterName,
-  });
+    /* Stack Outputs */
+    new CfnOutput(this, 'ExistingClusterName', {
+      value: cluster.clusterName,
+    });
+  }
 };

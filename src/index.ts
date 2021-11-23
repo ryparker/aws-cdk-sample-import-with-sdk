@@ -1,13 +1,23 @@
 import { App, Stack } from 'aws-cdk-lib';
-import createStackA from './stacks/stack-a';
-import createStackB from './stacks/stack-b';
+import StackA from './stacks/stack-a';
+import StackB from './stacks/stack-b';
 import { env } from './constants'
+import { fetchStackOutputs } from './aws-sdk';
+import { CLUSTER_NAME } from './constants';
 
 const app = new App();
 
-const stackA = new Stack(app, 'StackA', { env });
-createStackA(stackA);
+new StackA(app, 'StackA', { env });
 
 /* Uncomment code below once StackA is deployed */
-const stackB = new Stack(app, 'StackB', { env });
-createStackB(stackB);
+createStackB();
+
+async function createStackB() {
+  const stackOutputs = await fetchStackOutputs('StackA');
+
+  // Remember that hyphens are removed from the output names
+  const clusterName = stackOutputs[`${CLUSTER_NAME}ExistingClusterStackName`];
+  const securityGroupId = stackOutputs[`${CLUSTER_NAME}ExistingClusterSecurityGroup`];
+
+  new StackB(app, 'StackB', { env, clusterName, securityGroupId });
+}
