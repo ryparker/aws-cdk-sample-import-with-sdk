@@ -1,0 +1,55 @@
+{
+  "vpc-provider:account=495634646531:filter.isDefault=true:region=us-east-1:returnAsymmetricSubnets=true": {
+    "vpcId": "vpc-0515667f",
+    "vpcCidrBlock": "172.31.0.0/16",
+    "availabilityZones": [],
+    "subnetGroups": [
+      {
+        "name": "Public",
+        "type": "Public",
+        "subnets": [
+          {
+            "subnetId": "subnet-0f22d542",
+            "cidr": "172.31.16.0/20",
+            "availabilityZone": "us-east-1a",
+            "routeTableId": "rtb-78a25c06"
+          },
+          {
+            "subnetId": "subnet-32f9d96e",
+            "cidr": "172.31.32.0/20",
+            "availabilityZone": "us-east-1b",
+            "routeTableId": "rtb-78a25c06"
+          },
+          {
+            "subnetId": "subnet-0b587f6c",
+            "cidr": "172.31.0.0/20",
+            "availabilityZone": "us-east-1c",
+            "routeTableId": "rtb-78a25c06"
+          },
+          {
+            "subnetId": "subnet-89f9dba7",
+            "cidr": "172.31.80.0/20",
+            "availabilityZone": "us-east-1d",
+            "routeTableId": "rtb-78a25c06"
+          },
+          {
+            "subnetId": "subnet-c9ea81f7",
+            "cidr": "172.31.48.0/20",
+            "availabilityZone": "us-east-1e",
+            "routeTableId": "rtb-78a25c06"
+          },
+          {
+            "subnetId": "subnet-cedcc5c1",
+            "cidr": "172.31.64.0/20",
+            "availabilityZone": "us-east-1f",
+            "routeTableId": "rtb-78a25c06"
+          }
+        ]
+      }
+    ]
+  },
+  "security-group:account=495634646531:region=us-east-1:securityGroupId=sg-0f69c73da584d2dee": {
+    "securityGroupId": "sg-0f69c73da584d2dee",
+    "allowAllOutbound": false
+  }
+}
