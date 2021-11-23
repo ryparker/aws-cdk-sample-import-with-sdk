@@ -11,7 +11,6 @@ export interface StackBProps extends StackProps {
 export default class StackB extends Stack {
   constructor(scope: Construct, id: string, props: StackBProps) {
     super(scope, id, props);
-    console.log({ props })
 
     const vpc = Vpc.fromLookup(this, 'DefaultVpc', {
       isDefault: true,
