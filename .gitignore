@@ -119,3 +119,6 @@ dist
 
 # App Output
 build/
+
+# CDK
+cd.context.json

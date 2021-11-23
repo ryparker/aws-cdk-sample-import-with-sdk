@@ -8,12 +8,6 @@ const app = new App();
 const stackA = new Stack(app, 'StackA', { env });
 createStackA(stackA);
 
+/* Uncomment code below once StackA is deployed */
 const stackB = new Stack(app, 'StackB', { env });
-
-(async () => {
-  try {
-    await createStackB(stackB);
-  } catch (e) {
-    throw new Error((e as string));
-  }
-})();
+createStackB(stackB);
