@@ -1,4 +1,4 @@
-import { Fn } from 'aws-cdk-lib';
+import { Fn, CfnOutput } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { Cluster } from 'aws-cdk-lib/aws-ecs';
 import { Vpc, SecurityGroup } from 'aws-cdk-lib/aws-ec2';
@@ -25,5 +25,10 @@ export default async (scope: Construct) => {
     securityGroups: [
       clusterSecurityGroup
     ],
+  });
+
+  /* Stack Outputs */
+  new CfnOutput(scope, 'ExistingClusterName', {
+    value: cluster.clusterName,
   });
 };

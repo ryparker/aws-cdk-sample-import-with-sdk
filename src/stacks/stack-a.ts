@@ -18,7 +18,6 @@ export default (scope: Construct) => {
   new CfnOutput(scope, `${CLUSTER_NAME}-ExistingClusterStackName`, {
     value: cluster.clusterName,
   });
-
   new CfnOutput(scope, `${CLUSTER_NAME}-ExistingClusterSecurityGroup`, {
     value: clusterSecurityGroup.securityGroupId,
   });
