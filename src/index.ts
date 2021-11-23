@@ -1,4 +1,4 @@
-import { App, Stack } from 'aws-cdk-lib';
+import { App } from 'aws-cdk-lib';
 import StackA from './stacks/stack-a';
 import StackB from './stacks/stack-b';
 import { env } from './constants'
