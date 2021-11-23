@@ -9,5 +9,5 @@ const stackA = new Stack(app, 'StackA', { env });
 createStackA(stackA);
 
 /* Uncomment code below once StackA is deployed */
-const stackB = new Stack(app, 'StackB', { env });
-createStackB(stackB);
+// const stackB = new Stack(app, 'StackB', { env });
+// createStackB(stackB);
