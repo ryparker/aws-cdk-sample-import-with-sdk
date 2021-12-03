@@ -1464,24 +1464,19 @@ at-least-node@^1.0.0:
   resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
   integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
-aws-cdk-lib@2.0.0-rc.30:
-  version "2.0.0-rc.30"
-  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.0.0-rc.30.tgz#f3cdff514a7292f262332a27bae2722e0b072a21"
-  integrity sha512-+v7scJ5IKCXh84rAWMXUHssl9WZPKopxWtf0/u5CZ0xXLmMTfcpofSPPoJCoA2zUu0OpCF+z1Ml9eqjcH4lRaA==
+aws-cdk-lib@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.0.0.tgz#da7cf476363771f5ce4eb2aa73388b91db50553e"
+  integrity sha512-ETom3THcblmS3GSoS6rb2AGy7HZpcpoHvwNlxeVIVbmGOiKrrqjvECK2uOJtNboV/vDTHHjx/s/1SwptLo9dlg==
   dependencies:
     "@balena/dockerignore" "^1.0.2"
     case "1.6.3"
-    colors "^1.4.0"
-    diff "^5.0.0"
-    fast-deep-equal "^3.1.3"
     fs-extra "^9.1.0"
     ignore "^5.1.9"
     jsonschema "^1.4.0"
     minimatch "^3.0.4"
     punycode "^2.1.1"
     semver "^7.3.5"
-    string-width "^4.2.3"
-    table "^6.7.2"
     yaml "1.10.2"
 
 aws-cdk@2.0.0-rc.30:
