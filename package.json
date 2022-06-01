@@ -17,7 +17,7 @@
   "dependencies": {
     "@aws-sdk/client-cloudformation": "^3.42.0",
     "@aws-sdk/client-ec2": "^3.42.0",
-    "aws-cdk-lib": "2.0.0-rc.30"
+    "aws-cdk-lib": "2.26.0"
   },
   "devDependencies": {
     "@aws-cdk/assert": "2.0.0-rc.30",
